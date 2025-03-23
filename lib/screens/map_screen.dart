@@ -109,31 +109,47 @@ class _MapScreenState extends State<MapScreen> {
                     const Duration(milliseconds: 200),
                 curve: Curves.easeOutQuad,
               ),
-
-          // Filter button (separate from search field)
+              
           Positioned(
-            top: MediaQuery.of(context).padding.top + 10,
-            right: 20,
-            child: Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
+                top: MediaQuery.of(context).padding.top + 10,
+                right: 20,
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 10,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
                   ),
-                ],
+                  child: IconButton(
+                    icon: const Icon(Icons.tune_rounded, color: AppColors.grey),
+                    onPressed: () {},
+                  ),
+                ),
+              )
+              .animate()
+              .fadeIn(
+                duration: AnimationUtils.mediumDuration,
+                delay:
+                    AnimationUtils.shortDelay +
+                    const Duration(milliseconds: 200),
+                curve: Curves.easeOut,
+              )
+              .scale(
+                begin: const Offset(0.9, 0.9),
+                end: const Offset(1, 1),
+                duration: AnimationUtils.mediumDuration,
+                delay:
+                    AnimationUtils.shortDelay +
+                    const Duration(milliseconds: 200),
+                curve: Curves.easeOutQuad,
               ),
-              child: IconButton(
-                icon: const Icon(Icons.tune, color: AppColors.grey),
-                onPressed: () {},
-              ),
-            ),
-          ),
 
           // Bottom left buttons
           Positioned(
@@ -477,7 +493,7 @@ extension MapLayerOptions on _MapScreenState {
           enabled: true,
           child: Row(
             children: [
-              Icon(Icons.check, color: Colors.black54),
+              Icon(CupertinoIcons.shield_fill, color: Colors.black54),
               const SizedBox(width: 10),
               Text('Cosy areas', style: TextStyle(color: Colors.black87)),
             ],
@@ -515,7 +531,7 @@ extension MapLayerOptions on _MapScreenState {
           enabled: true,
           child: Row(
             children: [
-              Icon(Icons.business, color: Colors.black54),
+              Icon(CupertinoIcons.tray_full, color: Colors.black54),
               const SizedBox(width: 10),
               Text('Infrastructure', style: TextStyle(color: Colors.black87)),
             ],
